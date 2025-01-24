@@ -99,10 +99,10 @@ function MedalForm({ countries, setCountries, sortBy, sortCountries }) {
         onChange={handleChange}
         min="0"
       />
-      <button type="button" onClick={handleAddCountry}>
+      <button type="button" className="add-btn" onClick={handleAddCountry}>
         국가 추가
       </button>
-      <button type="button" onClick={handleUpdateCountry}>
+      <button type="button" className="edit-btn" onClick={handleUpdateCountry}>
         업데이트
       </button>
     </form>

@@ -14,9 +14,9 @@ body {
 .container {
   background-color: #ffffff;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -32,24 +32,53 @@ input[type="number"] {
   padding: 10px;
   border: 1px solid #cccccc;
   border-radius: 4px;
+  transition: border-color 0.3s ease-in-out;
 }
 
+/* 텍스트 입력시 강조 효과 */
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+input[type="text"],
+input[type="number"],
 button {
-  padding: 10px 20px;
-  border: none;
+  padding: 10px;
+  border: 1px solid #cccccc;
   border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
+  transition: border-color 0.3s ease-in-out;
 }
 
-button:hover {
+/* 버튼 너비 고정 */
+button {
+  width: auto;
+  padding: 10px;
+}
+
+.add-btn {
   background-color: #007bff;
   color: white;
+}
+
+.add-btn:hover {
+  background-color: #0056b3;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: black;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 30px;
 }
 
 th,
@@ -99,4 +128,22 @@ tr:nth-child(odd) {
 
 .sort-options input[type="radio"] {
   cursor: pointer;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #0056b3; /* 파란색 */
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: "🏅";
+  font-size: 1.8rem;
+  position: absolute;
+  right: -2.5rem;
+  top: 0;
 }
