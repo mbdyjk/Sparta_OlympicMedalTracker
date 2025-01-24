@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
-function MedalForm({ countries, setCountries }) {
+function MedalForm({
+  countries,
+  setCountries,
+  sortBy,
+  setSortBy,
+  sortCountries,
+}) {
   const [formData, setFormData] = useState({
     name: "",
     gold: 0,
@@ -37,7 +43,9 @@ function MedalForm({ countries, setCountries }) {
     }
 
     // countries에 국가 추가
-    setCountries((prev) => [...prev, formData]);
+    const newCountries = [...countries, formData];
+    const sortedCountries = sortCountries(newCountries, sortBy);
+    setCountries(sortedCountries);
     // 입력 후에 form을 초기화한다.
     resetForm();
   };
@@ -52,7 +60,8 @@ function MedalForm({ countries, setCountries }) {
       country.name === formData.name ? formData : country
     );
 
-    setCountries(updatedCountries);
+    const sortedCountries = sortCountries(updatedCountries, sortBy);
+    setCountries(sortedCountries);
     resetForm();
   };
 
