@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function MedalForm({ setCountries, countries }) {
+function MedalForm({ countries, setCountries }) {
   const [formData, setFormData] = useState({
     name: "",
     gold: 0,
@@ -27,7 +27,7 @@ function MedalForm({ setCountries, countries }) {
 
     // 중복 국가명 체크
     // countries가 배열임을 확실히 하기 위해 조건문 추가
-    console.log(countries);
+    //console.log(countries);
     if (
       Array.isArray(countries) &&
       countries.some((country) => country.name === formData.name)
@@ -39,6 +39,24 @@ function MedalForm({ setCountries, countries }) {
     // countries에 국가 추가
     setCountries((prev) => [...prev, formData]);
     // 입력 후에 form을 초기화한다.
+    resetForm();
+  };
+
+  const handleUpdateCountry = () => {
+    if (!countries.some((country) => country.name === formData.name)) {
+      alert("해당 국가가 존재하지 않습니다. 국가명을 확인하세요.");
+      return;
+    }
+
+    const updatedCountries = countries.map((country) =>
+      country.name === formData.name ? formData : country
+    );
+
+    setCountries(updatedCountries);
+    resetForm();
+  };
+
+  const resetForm = () => {
     setFormData({ name: "", gold: 0, silver: 0, bronze: 0 });
   };
 
@@ -78,6 +96,9 @@ function MedalForm({ setCountries, countries }) {
       />
       <button type="button" onClick={handleAddCountry}>
         국가 추가
+      </button>
+      <button type="button" onClick={handleUpdateCountry}>
+        업데이트
       </button>
     </form>
   );
