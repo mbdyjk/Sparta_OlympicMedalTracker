@@ -4,7 +4,12 @@ import MedalItem from "./MedalItem";
 function MedalList({ countries, setCountries }) {
   const handleDelete = (name) => {
     // 입력한 국가 이름과 다른 항목들만 남긴다.
-    setCountries((prev) => prev.filter((country) => country.name !== name));
+    //setCountries((prev) => prev.filter((country) => country.name !== name));
+    const updatedCountries = countries.filter(
+      (country) => country.name !== name
+    );
+    setCountries(updatedCountries);
+    localStorage.setItem("countries", JSON.stringify(updatedCountries));
   };
 
   return (

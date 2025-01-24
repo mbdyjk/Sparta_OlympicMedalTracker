@@ -5,7 +5,11 @@ import "./App.css";
 
 function App() {
   // 국가 및 메달 데이터를 저장할 상태
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState(() => {
+    // 로컬 스토리지에서 데이터를 가져온다.
+    const savedCountries = localStorage.getItem("countries");
+    return savedCountries ? JSON.parse(savedCountries) : [];
+  });
   // 정렬 기준 상태
   const [sortBy, setSortBy] = useState("gold");
 

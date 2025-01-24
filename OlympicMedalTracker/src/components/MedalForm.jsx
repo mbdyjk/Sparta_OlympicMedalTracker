@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 
-function MedalForm({
-  countries,
-  setCountries,
-  sortBy,
-  setSortBy,
-  sortCountries,
-}) {
+function MedalForm({ countries, setCountries, sortBy, sortCountries }) {
   const [formData, setFormData] = useState({
     name: "",
     gold: 0,
@@ -46,6 +40,7 @@ function MedalForm({
     const newCountries = [...countries, formData];
     const sortedCountries = sortCountries(newCountries, sortBy);
     setCountries(sortedCountries);
+    localStorage.setItem("countries", JSON.stringify(sortedCountries));
     // 입력 후에 form을 초기화한다.
     resetForm();
   };
@@ -62,6 +57,7 @@ function MedalForm({
 
     const sortedCountries = sortCountries(updatedCountries, sortBy);
     setCountries(sortedCountries);
+    localStorage.setItem("countries", JSON.stringify(sortedCountries));
     resetForm();
   };
 
