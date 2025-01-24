@@ -10,6 +10,15 @@ function App() {
   return (
     <div className="container">
       <h1>2024 파리 올림픽</h1>
+      <div className="sort-options">
+        <label>
+          <input type="radio" name="sortBy" value="gold" />
+          금메달 기준 정렬
+        </label>
+        <label>
+          <input type="radio" name="sortBy" value="total" />총 메달 기준 정렬
+        </label>
+      </div>
       <MedalForm countries={countries} setCountries={setCountries} />
       <MedalList countries={countries} setCountries={setCountries} />
     </div>
