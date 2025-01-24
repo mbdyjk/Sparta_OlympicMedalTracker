@@ -11,7 +11,7 @@ function App() {
     <div className="container">
       <h1>2024 파리 올림픽</h1>
       <MedalForm setCountries={setCountries} />
-      <MedalList countries={countries} />
+      <MedalList countries={countries} setCountries={setCountries} />
     </div>
   );
 }

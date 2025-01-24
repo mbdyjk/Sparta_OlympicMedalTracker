@@ -17,7 +17,7 @@ function MedalForm({ setCountries }) {
   };
 
   const handleAddCountry = () => {
-    console.log("Adding Country:", formData);
+    //console.log("Adding Country:", formData);
     if (!formData.name) {
       alert("국가명을 입력하세요");
       return;
