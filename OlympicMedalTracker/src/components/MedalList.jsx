@@ -1,4 +1,5 @@
 import React from "react";
+import MedalItem from "./MedalItem";
 
 function MedalList({ countries, setCountries }) {
   const handleDelete = (name) => {
@@ -19,20 +20,11 @@ function MedalList({ countries, setCountries }) {
       </thead>
       <tbody>
         {countries.map((country, index) => (
-          <tr key={index}>
-            <td>{country.name}</td>
-            <td>{country.gold}</td>
-            <td>{country.silver}</td>
-            <td>{country.bronze}</td>
-            <td>
-              <button
-                className="delete-btn"
-                onClick={() => handleDelete(country.name)}
-              >
-                삭제
-              </button>
-            </td>
-          </tr>
+          <MedalItem
+            key={index}
+            country={country}
+            onDeleteCountry={handleDelete}
+          />
         ))}
       </tbody>
     </table>
