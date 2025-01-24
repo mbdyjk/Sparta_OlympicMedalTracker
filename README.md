@@ -81,10 +81,4 @@ yarn dev
 
 ### 1번
 
-- **문제**:
-- **해결 방법(또는 정리 문서 URL)**:
-
-### 2번
-
-- **문제**:
-- **해결 방법(또는 정리 문서 URL)**:
+- **링크**: https://velog.io/@rpyjko/useState-set-%ED%95%A8%EC%88%98-%EC%A7%81%ED%9B%84-%EC%83%81%ED%83%9C-%EA%B0%92-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0-%EC%8B%A4%ED%8C%A8
